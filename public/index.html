@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CzatApka</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="angular/angular.min.js"></script>
+  <script src="jquery/dist/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="css/styl.css">
+</head>
+
+<body>
+	<div id="chat">
+		<div class="bulb">
+		  <img src="img/bullet_red.png"> trwa łączenie…
+		</div>
+		<div class="bulb">
+		  <img src="img/bullet_green.png"> połączono
+		</div>
+		<div id="chatLog">
+		
+		</div>
+	
+		<form action="" id="nameForm">
+		  <input type="text" id="name" maxlength="20">
+		  <button id="set">Ustaw nazwę</button>
+		</form>
+		
+		<form action="" id="messageForm">
+		  <input type="text" id="message" maxlength="20">
+		  <button id="send">Wyślij wiadomość</button>
+		</form>
+		
+		<select id="selectRoom">
+			<option>Room0</option>
+			<option>Room1</option>
+			<option>Room2</option>
+		</select>
+	
+	</div>
+</body>
+
+</html>
