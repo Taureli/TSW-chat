@@ -13,6 +13,9 @@ $(function(){
 	var $send = $('#send');	//button do wiadomosci
 	var $message = $('#message');
 	var $name = $('#name');
+	var $roomForm = $('#roomForm');
+	var $create = $('#create');	//button do tworzenia pokoju
+	var $roomName = $('#roomName');
 
 
 	//--------ZAMIANA TAGÓW---------
@@ -65,13 +68,24 @@ $(function(){
 			$messageForm.show();
 			$selectRoom.hide();
 			$nameForm.hide();
+			$roomForm.hide();
+		}
+	
+	});
+	
+	$create.click(function(e){
+	
+		e.preventDefault();
+		
+		if($roomName.val().length > 0){
+			socket.emit('create room', $roomName.val());
 		}
 	
 	});
 	
 		
     socket.on('connect', function () {
-        $(".bulb").first.html("");
+		$('#connStat').attr('src', 'img/bullet_green.png');
     });
 		
     socket.on('history', function (data) {
@@ -79,7 +93,7 @@ $(function(){
         msgHistory = data;
 		$.each(msgHistory, function(i, el){
 		
-			$chatLog.append(el + '<br/>');
+			$chatLog.prepend(el + '<br/>');
 		
 		});
 		
@@ -88,6 +102,14 @@ $(function(){
     socket.on('rec msg', function (data) {
         $chatLog.append(data + '<br/>');
     });
+	
+	socket.on('showRooms', function(data){
+		$selectRoom.html("");
+		
+		$.each(data, function(i, el){
+			$selectRoom.append($( '<option>', {value: i, text: el} ));
+		});
+	});
 	
 	
 });

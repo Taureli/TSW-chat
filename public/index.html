@@ -14,10 +14,7 @@
 <body>
 	<div id="chat">
 		<div class="bulb">
-		  <img src="img/bullet_red.png"> trwa łączenie…
-		</div>
-		<div class="bulb">
-		  <img src="img/bullet_green.png"> połączono
+		  <img id="connStat" src="img/bullet_red.png"> Stan połączenia
 		</div>
 		<div id="chatLog">
 		
@@ -25,7 +22,7 @@
 	
 		<form action="" id="nameForm">
 		  <input type="text" id="name" maxlength="20">
-		  <button id="set">Ustaw nazwę</button>
+		  <button id="set">Ustaw nazwę użytkownika</button>
 		</form>
 		
 		<form action="" id="messageForm">
@@ -33,10 +30,13 @@
 		  <button id="send">Wyślij wiadomość</button>
 		</form>
 		
+		<form action="" id="roomForm">
+		  <input type="text" id="roomName" maxlength="20">
+		  <button id="create">Stwórz nowy pokój</button>
+		</form>
+		
 		<select id="selectRoom">
-			<option>Room0</option>
-			<option>Room1</option>
-			<option>Room2</option>
+		
 		</select>
 	
 	</div>
